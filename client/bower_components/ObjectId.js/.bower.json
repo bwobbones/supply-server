@@ -1,0 +1,13 @@
+{
+  "name": "ObjectId.js",
+  "homepage": "https://github.com/justaprogrammer/ObjectId.js",
+  "_release": "42e89381b3",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "42e89381b39c0cc7d6e17749230c9a3b7a8543f2"
+  },
+  "_source": "https://github.com/justaprogrammer/ObjectId.js.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/justaprogrammer/ObjectId.js.git"
+}

@@ -1,0 +1,35 @@
+div.row
+  h2 Maintenance Orders
+
+div.row
+  div.col-md-12
+    table.table(st-safe-src="orders.data", st-table="displayedOrders")
+      thead
+        tr
+          th(st-sort="orderNumber") Order Number
+          th(st-sort="orderPersonName") Order Name
+          th(st-sort="dateRequired", st-sort-default='true') Date Required
+          th Parts
+        tr
+          th
+            input.input-sm.form-control(st-search='orderNumber', placeholder='Search for order number', type='search')
+          th(colspan='3')
+            input.input-sm.form-control(st-search, placeholder='Search all', type='search')
+      tbody
+        tr(st-select-row="row", ng-repeat="row in displayedOrders")
+          td {{ row.orderNumber }}
+          td {{ row.orderPersonName }}
+          td {{ row.dateRequired | date:'dd/MM/yyyy' }}
+          td
+            div(ng-repeat="partOrder in row.partOrders") 
+              div(ng-if='!partOrder.part.purchaseOrder')
+                p {{ partOrder.part.partName }} 
+                  span.label.label-default Ordering {{ partOrder.dateToOrder | date:'dd/MM/yyyy'}}
+              div(ng-if='partOrder.part.purchaseOrder')
+                p {{ partOrder.part.partName }} &nbsp;&nbsp;
+                  span.label.label-primary Ordered {{ partOrder.dateToOrder | date:'dd/MM/yyyy'}}
+                
+      tfoot
+        tr
+          td.text-center(colspan='4')
+            div(st-pagination="", st-items-by-page="20", st-displayed-pages="7")

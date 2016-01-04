@@ -1,0 +1,85 @@
+extends layout
+
+block body
+
+  nav.navbar.navbar-default.navbar-static-top(role="navigation")
+    div.navbar-header
+      a.navbar-brand.navbar-left(ui-sref="index") Supply
+    div.collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li.active
+          a(ui-sref="index") Orders
+        li.active
+          a(ui-sref="purchase") Purchases
+
+  div.container-fluid(style="width: 90%")
+    div(id="mainWindow")
+      div.row
+        div.col-md-12
+          toaster-container(toaster-options="{'time-out': 2000, 'position-class': 'toast-bottom-right'}")
+          div(ui-view="dataPanel")
+
+  // div.footer
+  //   div.row
+  //     div.col-md-12
+  //       img.pull-right(src='/resourceful-logo.png', height='40px')
+
+  // google maps
+  script(src='//maps.googleapis.com/maps/api/js?sensor=false')
+
+  //-<!-- build:js scripts/vendor.js -->
+  // bower:js
+  script(src='bower_components/jquery/dist/jquery.js')
+  script(src='bower_components/angular/angular.js')
+  script(src='bower_components/angular-animate/angular-animate.js')
+  script(src='bower_components/angular-sanitize/angular-sanitize.js')
+  script(src='bower_components/angular-bootstrap/ui-bootstrap-tpls.js')
+  script(src='bower_components/angular-ui-router/release/angular-ui-router.js')
+  script(src='bower_components/angular-ui-utils/ui-utils.js')
+  script(src='bower_components/AngularJS-Toaster/toaster.js')
+  script(src='bower_components/d3/d3.js')
+  script(src='bower_components/file-saver/FileSaver.js')
+  script(src='bower_components/moment/moment.js')
+  script(src='bower_components/ng-file-upload/ng-file-upload.js')
+  script(src='bower_components/ObjectId.js/src/main/javascript/Objectid.js')
+  script(src='bower_components/underscore/underscore.js')
+  script(src='bower_components/lodash/lodash.js')
+  script(src='bower_components/angular-google-maps/dist/angular-google-maps.js')
+  script(src='bower_components/angular-hotkeys/build/hotkeys.min.js')
+  script(src='bower_components/chosen/chosen.jquery.js')
+  script(src='bower_components/angular-chosen-localytics/chosen.js')
+  script(src='bower_components/select2/select2.js')
+  script(src='bower_components/angular-ui-select2/src/select2.js')
+  script(src='bower_components/ng-Fx/dist/ngFx.js')
+  script(src='bower_components/angular-loading-bar/build/loading-bar.js')
+  script(src='bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.js')
+  script(src='bower_components/angular-date-time-input/src/dateTimeInput.js')
+  script(src='bower_components/angular-smart-table/dist/smart-table.js')
+  // endbower
+  //-<!-- endbuild -->
+
+  //-<!-- build:js scripts/app.js -->
+  script(src='app.js')
+  //-<!-- endbuild -->
+
+  //-<!-- build:js scripts/components.js -->
+  // injector:js
+  script(src='common/directive/dateTimeValidation.js')
+  script(src='common/filter/returnDirtyItems.js')
+  script(src='common/service/alertService.js')
+  script(src='common/service/dateValidationService.js')
+  script(src='common/service/docxService.js')
+  script(src='common/service/eventLogService.js')
+  script(src='common/service/googleLocationService.js')
+  script(src='common/service/htmlifyDataService.js')
+  script(src='common/service/stackTraceService.js')
+  script(src='common/service/typeAheadService.js')
+  script(src='common/service/underscoreService.js')
+  script(src='index/service/indexService.js')
+  script(src='index/controller/indexController.js')
+  script(src='index/directive/appVersionDirective.js')
+  script(src='purchase/controller/purchaseController.js')
+  script(src='purchase/service/purchaseService.js')
+  script(src='resourceController.js')
+  // endinjector
+  //-<!-- endbuild -->

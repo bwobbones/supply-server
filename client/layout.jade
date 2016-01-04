@@ -1,0 +1,30 @@
+doctype html
+html(ng-app="myApp")
+  head
+    meta(charset='utf8')
+    base(href='/')
+    title Resource
+
+    //-<!-- build:css styles/vendor.min.css -->
+    link(rel='stylesheet', href='bower_components/bootswatch/cerulean/bootstrap.min.css')
+    link(rel='stylesheet', href='bower_components/AngularJS-Toaster/toaster.css')
+    link(rel='stylesheet', href='bower_components/chosen/chosen.css')
+    link(rel='stylesheet', href='bower_components/select2/select2.css')
+    // bower:css
+    link(rel='stylesheet', href='bower_components/fontawesome/css/font-awesome.css')
+    link(rel='stylesheet', href='bower_components/angular-hotkeys/build/hotkeys.min.css')
+    link(rel='stylesheet', href='bower_components/angular-loading-bar/build/loading-bar.css')
+    link(rel='stylesheet', href='bower_components/chosen-bootstrap/chosen.bootstrap.css')
+    // endbower
+    link(rel='stylesheet', href='bower_components/select2-bootstrap-css/select2-bootstrap.css')
+    link(rel='stylesheet', href='bower_components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css')
+    //-<!-- endbuild -->
+
+    //-<!-- build:css styles/main.min.css -->
+    // injector:css
+    link(rel='stylesheet', href='css/app.css')
+    link(rel='stylesheet', href='css/select2-bootstrap-overrides.css')
+    // endinjector
+    //-<!-- endbuild -->
+  body(ng-controller="ResourceCtrl", ui-keydown="{'ctrl-shift-space':'saveEvent($event)'}")
+    block body

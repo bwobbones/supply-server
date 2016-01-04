@@ -1,0 +1,33 @@
+div.row
+  div.col-md-10
+    h2 Planned Orders for {{ form.selectedDate | date:'dd/MM/yyyy' }}
+  div.col-md-2
+    button.btn.btn-primary.btn-block.btn-sm(type="submit", ng-click='savePurchases()') Save Purchases
+  
+div.row
+  div.col-md-9
+    table.table(st-safe-src="purchases", st-table="displayedPurchases")
+      thead
+        th(st-sort="order.orderNumber") Order Number
+        th(st-sort="dateToOrder") Order Required
+        th(st-sort="part.partName") Part Name
+        th(st-sort="part.price") Price
+        th(st-sort="part.quantity") Quantity
+        th(st-sort="part.purchaseOrder") Purchase Order Number
+      tbody
+        tr(st-select-row="row", ng-repeat="row in displayedPurchases")
+          td {{ row.order.orderNumber}}
+          td {{ row.order.dateRequired | date:'dd/MM/yyyy' }}
+          td {{ row.part.partName }}
+          td {{ row.part.price | currency }}
+          td {{ row.quantity }}
+          td
+            input.form-control(ng-model='row.part.purchaseOrder', type='text', name='row.part.purchaseOrder')
+      tfoot
+        tr
+          td.text-center(colspan='6')
+            div(st-pagination="", st-items-by-page="20", st-displayed-pages="7")  
+            
+  div.col-md-3
+    div(style="display:inline-block; min-height:290px;")
+      datepicker(ng-model='form.selectedDate')
